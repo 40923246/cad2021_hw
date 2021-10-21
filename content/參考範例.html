@@ -2,7 +2,7 @@
         <head>
         <title>cad2021 homework site</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -139,17 +139,25 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">CAD2 操作流程 << <a href='CAD2 操作流程.html'>Previous</a> <a href='HW1-1.html'>Next</a> >> HW1-1<br /><h1>運動場景</h1>
-<h4>CAD1:</h4>
-<p style="padding-left: 30px;">CAD1 零件轉出後轉入 CoppeliaSim 操作影片 (Youtube)</p>
-<p style="padding-left: 30px;">CAD1 零件轉入 CoppeliaSim 教學影片 (Wink)</p>
-<p style="padding-left: 30px;">CAD1 轉入 Coppeliasim 教學影片 embedded 影片: 標題必須為「<span style="background-color: #ffff99;">NFU - MDE - cad2021 - 學號 - SW2020 </span>零件轉入 CoppeliaSim 教學影片」且加上<span style="background-color: #ccffcc;">語音說明</span>與<span style="background-color: #ccffcc;">字幕.<br/></span></p>
-<h4>CAD2:</h4>
-<p style="padding-left: 30px;">CAD2 零件轉出後轉入 CoppeliaSim 操作影片 (Youtube)</p>
-<p style="padding-left: 30px;">CAD2 零件轉入 CoppeliaSim 教學影片 (Wink)</p>
-<p style="padding-left: 30px;">CAD2 轉入 Coppeliasim 教學影片 embedded 影片: 標題必須為「<span style="background-color: #ffff99;">NFU - MDE - cad2021 - 學號 - SW2020 </span>零件轉入 CoppeliaSim 教學影片」且加上<span style="background-color: #ccffcc;">語音說明</span>與<span style="background-color: #ccffcc;">字幕.</span></p>
-<p>若使用 Solidworks 2017 版, 則將 SW2020 換為 SW2017, 其他套件 INV2020 代表 AutoDesk Inventor 2020 版, 還有 Onshape 與 Solvespace 等套件名稱.</p>
-<br />CAD2 操作流程 << <a href='CAD2 操作流程.html'>Previous</a> <a href='HW1-1.html'>Next</a> >> HW1-1</div>
+    <div id="tipue_search_content">run << <a href='run.html'>Previous</a> <br /><h1>參考範例</h1>
+<p><span>．cad2021 2b 各學員的 cad2021_hw 網站連結</span></p>
+<p>將資料存入 gist, 取其 url<br/>url = "https://gist.githubusercontent.com/mdecourse/b11a88a98655d41055c47f08fe94788f/raw/8a27e6885ee1a5074bcf864d741679afeac796c4/2b_w2_stud_list.txt"<br/># 利用 open() 開啟 url 後, 以 readlines() 讀取後可納入數列<br/>data = open(url).readlines()<br/># 檢查資料筆數, 第一筆為 title<br/>#print(data)<br/>#print(len(data))<br/>data = data[1:]<br/>#print(data)<br/>for i in range(len(data)):<br/> num_github = data[i] <br/> num = num_github.split("\t")[0]<br/> account = num_github.split("\t")[1]<br/> if account == "":<br/> account = num<br/> print("&lt;a href='https://" + str(account) + ".github.io/cad2021_hw'&gt;"+ str(num) + "&lt;/a&gt;")</p>
+<p></p>
+<p>．隨機從 2b 學員名單中取出 10 個網站</p>
+<p>from browser import html<br/>from browser import document<br/>import random</p>
+<p>brython_div = document["brython_div"]</p>
+<p># 將資料存入 gist, 取其 url<br/>url = "https://gist.githubusercontent.com/mdecourse/b11a88a98655d41055c47f08fe94788f/raw/8a27e6885ee1a5074bcf864d741679afeac796c4/2b_w2_stud_list.txt"<br/># 利用 open() 開啟 url 後, 以 readlines() 讀取後可納入數列<br/>data = open(url).readlines()<br/># 檢查資料筆數, 第一筆為 title<br/>#print(data)<br/>#print(len(data))<br/>data = data[1:]<br/>#print(data)</p>
+<p># 根據 href 與 content 將 html 元件中的 anchor 插入頁面<br/>def makeLink(href, content):<br/> brython_div &lt;= html.A(content, href=href)<br/> brython_div &lt;= html.BR()</p>
+<p><br/># 從學員資料中隨機取出 10 位學員的網頁進行查核<br/>select = 10<br/>random.shuffle(data)<br/>data = data[:10]</p>
+<p>for i in range(len(data)):<br/> num_github = data[i] <br/> num = num_github.split("\t")[0]<br/> account = num_github.split("\t")[1]<br/> if account == "":<br/> account = num<br/> content = str(num)<br/> href = "https://"+ str(account) + ".github.io/cad2021_hw"<br/> makeLink(href, content)</p>
+<p></p>
+<p></p>
+<!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script><br />run << <a href='run.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
