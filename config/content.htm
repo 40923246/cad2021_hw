@@ -678,16 +678,15 @@ run()
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
 <div id="brython_div"></div>
 <h3>參考範例</h3>
-<p><span>．cad2021 2b 各學員的 cad2021_hw 網站連結</span></p>
+<p><span>．cad2021 2b 各學員的 cad2021_hw 網站連結</span><span># </span>將資料存入<span> gist, </span>取其<span> url</span></p>
 <blockquote>
-<pre><span># </span>將資料存入<span> gist, </span>取其<span> url</span><br/><br/><span>url = "https://gist.githubusercontent.com/mdecourse/b11a88a98655d41055c47f08fe94788f/raw/8a27e6885ee1a5074bcf864d741679afeac796c4/2b_w2_stud_list.txt"</span><br/><br/><span># </span>利用<span> open() </span>開啟<span> url </span>後<span>, </span>以 <span>readlines() </span>讀取後可納入數列<br/><br/><span>data = open(url).readlines()</span><br/><br/><span># </span>檢查資料筆數<span>, </span>第一筆為<span> title</span><br/><br/><span>#print(data)</span><br/><br/><span>#print(len(data))</span><br/><br/><span>data = data[1:]</span><br/><br/><span>#print(data)</span><br/><br/><span>for i in range(len(data)):</span><br/><br/><span>    num_github = data[i] </span><br/><br/><span>    num = num_github.split("\t")[0]</span><br/><br/><span>    account = num_github.split("\t")[1]</span><br/><br/><span>    if account == "":</span><br/><br/><span>        account = num</span><br/><br/><span>    print("&lt;p&gt;&lt;a href='https://" + str(account) + ".github.io/cad2021_hw'&gt;"+ str(num) + "&lt;/a&gt;""&lt;a href='https://github.com/" + str(account) + "/cad2021_hw'&gt;"+ str(num) + "&lt;/a&gt;&lt;p&gt;")</span></pre>
+<pre><br/><span>url = "https://gist.githubusercontent.com/mdecourse/b11a88a98655d41055c47f08fe94788f/raw/8a27e6885ee1a5074bcf864d741679afeac796c4/2b_w2_stud_list.txt"</span><br/><span># </span>利用<span> open() </span>開啟<span> url </span>後<span>, </span>以 <span>readlines() </span>讀取後可納入數列<br/><span>data = open(url).readlines()</span><br/><span># </span>檢查資料筆數<span>, </span>第一筆為<span> title</span><br/><span>#print(data)</span><br/><span>#print(len(data))</span><br/><span>data = data[1:]</span><br/><span>#print(data)</span><br/><span>for i in range(len(data)):</span><br/><span>    num_github = data[i]</span><br/><span>    num = num_github.split("\t")[0]</span><br/><span>    account = num_github.split("\t")[1]</span><br/><span>    if account == "":</span><br/><span>        account = num</span><br/><span>    print("&lt;p&gt;&lt;a href='https://" + str(account) + ".github.io/cad2021_hw'&gt;"+ str(num) + "&lt;/a&gt;""&lt;a href='https://github.com/" + str(account) + "/cad2021_hw'&gt;"+ str(num) + "&lt;/a&gt;&lt;p&gt;")</span></pre>
 </blockquote>
 <p></p>
 <p>．隨機從 2b 學員名單中取出 10 個網站</p>
 <blockquote>
 <pre>from browser import html<br/>from browser import document<br/>import random<br/><br/>brython_div = document["brython_div"]<br/><br/># 將資料存入 gist, 取其 url<br/>url = "https://gist.githubusercontent.com/mdecourse/b11a88a98655d41055c47f08fe94788f/raw/8a27e6885ee1a5074bcf864d741679afeac796c4/2b_w2_stud_list.txt"<br/># 利用 open() 開啟 url 後, 以 readlines() 讀取後可納入數列<br/>data = open(url).readlines()<br/># 檢查資料筆數, 第一筆為 title<br/>#print(data)<br/>#print(len(data))<br/>data = data[1:]<br/>#print(data)<br/><br/># 根據 href 與 content 將 html 元件中的 anchor 插入頁面<br/>def makeLink(href, content):<br/> brython_div &lt;= html.A(content, href=href)<br/> brython_div &lt;= html.BR()<br/><br/><br/># 從學員資料中隨機取出 10 位學員的網頁進行查核<br/>select = 10<br/>random.shuffle(data)<br/>data = data[:10]<br/><br/>for i in range(len(data)):<br/> num_github = data[i] <br/> num = num_github.split("\t")[0]<br/> account = num_github.split("\t")[1]<br/> if account == "":<br/> account = num<br/> content = str(num)<br/> href = "https://"+ str(account) + ".github.io/cad2021_hw"<br/> makeLink(href, content)</pre>
-</blockquote>
-<h2>Wink</h2>
+</blockquote><h2>Wink</h2>
 <div><a href="https://40723217.github.io/cad2021_hw/content/W13.html">隨便找一位</a>有上傳wink影片的網站</div>
 <p><img alt="" height="674" src="/images/wink1 2022-01-05 003736.png" width="1200"/></p>
 <div>檢視頁面來源</div>
